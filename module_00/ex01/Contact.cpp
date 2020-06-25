@@ -6,7 +6,7 @@
 /*   By: lafontai <lafontai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/24 10:51:00 by lafontai          #+#    #+#             */
-/*   Updated: 2020/06/24 15:13:36 by lafontai         ###   ########.fr       */
+/*   Updated: 2020/06/25 11:00:58 by lafontai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ Contact::~Contact()
 {
 }
 
-void	Contact::printContactDetails()
+void	Contact::printContactDetails() const
 {
 	std::cout << "CONTACT INFORMATIONS" << std::endl;
 	std::cout << "First name:         " << firstName << std::endl;
@@ -38,7 +38,7 @@ void	Contact::printContactDetails()
 	std::cout << "Darkest secret:     " << darkestSecret << std::endl;
 }
 
-void	Contact::printContactLine(int index)
+void	Contact::printContactLine(int index) const
 {
 	std::cout << "|" << std::string(9, ' ') << index << "|";
 	if (firstName.length() <= 10)

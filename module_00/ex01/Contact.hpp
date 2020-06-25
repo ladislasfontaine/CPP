@@ -6,7 +6,7 @@
 /*   By: lafontai <lafontai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/24 11:27:38 by lafontai          #+#    #+#             */
-/*   Updated: 2020/06/24 15:13:26 by lafontai         ###   ########.fr       */
+/*   Updated: 2020/06/25 11:00:37 by lafontai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@ class Contact
 	public:
 	Contact();
 	~Contact();
-	void		printContactDetails();
-	void		printContactLine(int index);
+	void		printContactDetails() const;
+	void		printContactLine(int index) const;
 	void		setAttribute(int index, std::string str);
 
 	private:
