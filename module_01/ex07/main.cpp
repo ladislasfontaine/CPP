@@ -6,7 +6,7 @@
 /*   By: lafontai <lafontai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/26 18:48:15 by lafontai          #+#    #+#             */
-/*   Updated: 2020/06/26 19:49:48 by lafontai         ###   ########.fr       */
+/*   Updated: 2020/06/29 10:25:07 by lafontai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,34 +27,51 @@ void	readFromFile(std::string *text, std::string filename)
 		exit (1);
 	}
 	while (getline(source, line))
-		ss << line << "\n";
+	{
+		if (source.eof())
+			ss << line;
+		else
+			ss << line << std::endl;
+	}
 	*text = ss.str();
-	std::cout << *text << std::endl;
 }
 
 void	updateText(std::string *text, std::string s1, std::string s2)
 {
-	// attention si on remplace par la même string ou une string que se contient elle mm
-	//while ((*text).find(s1) >= 0)
+	std::size_t	found;
+	found = 0;
+	if ((found = (*text).find(s1)) != std::string::npos)
 		(*text).replace((*text).find(s1), s1.length(), s2);
-	std::cout << *text << std::endl;
+	while ((found = (*text).find(s1, found + s2.length())) != std::string::npos)
+		(*text).replace((*text).find(s1, found), s1.length(), s2);
 }
-//void	writeNewText(std::string text, std::string filename)
-//{}
+
+void	writeNewText(std::string text, std::string filename)
+{
+	std::ofstream	newFile(filename.append(".replace").c_str());
+
+	if (!newFile)
+	{
+		std::cout << "Could not create the new file " << filename.append(".replace") << std::endl;
+		exit(1);
+	}
+	newFile << text;
+}
 
 int		main(int argc, char **argv)
 {
 	if (argc == 4)
 	{
-		// vérifier que argv[2] et argv[3] ne sont pas vides
-		// chercher dans la string des occurrences de s1
-		// remplacer
-		// copier string dans argv[1].replace
 		std::string	text;
 
+		if (((std::string)argv[2]).empty() || ((std::string)argv[3]).empty())
+		{
+			std::cout << "Empty string. s1 or s2 should not be empty." << std::endl;
+			return (1);
+		}
 		readFromFile(&text, argv[1]);
 		updateText(&text, argv[2], argv[3]);
-		//writeNewText(text, argv[1]);
+		writeNewText(text, argv[1]);
 	}
 	else
 	{
