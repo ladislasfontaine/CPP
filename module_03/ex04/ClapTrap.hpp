@@ -6,7 +6,7 @@
 /*   By: lafontai <lafontai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/30 15:02:42 by lafontai          #+#    #+#             */
-/*   Updated: 2020/07/02 09:52:55 by lafontai         ###   ########.fr       */
+/*   Updated: 2020/07/02 11:35:12 by lafontai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ class ClapTrap
 	void		meleeAttack(std::string const &target);
 	void		takeDamage(unsigned int amount);
 	void		beRepaired(unsigned int amount);
+	std::string	getName(void);
 
 	protected:
 	int			_hitPoints;
@@ -45,7 +46,6 @@ class ClapTrap
 	int			_meleeAttackDamage;
 	int			_rangedAttackDamage;
 	int			_armorDamageReduction;
-	friend class NinjaTrap;
 };
 
 #endif

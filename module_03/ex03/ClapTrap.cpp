@@ -6,7 +6,7 @@
 /*   By: lafontai <lafontai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/30 15:08:17 by lafontai          #+#    #+#             */
-/*   Updated: 2020/06/30 15:22:58 by lafontai         ###   ########.fr       */
+/*   Updated: 2020/07/02 11:33:06 by lafontai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,4 +70,9 @@ void	ClapTrap::beRepaired(unsigned int amount)
 	_hitPoints += amount;
 	_hitPoints = _hitPoints > _maxHitPoints ? _maxHitPoints : _hitPoints;
 	std::cout << YELLOW << "[REPARATION] CLAP-TRAP <" << _name << "> now has <" << _hitPoints << "> life points." << RESET << std::endl;
+}
+
+std::string		ClapTrap::getName(void)
+{
+	return (_name);
 }
