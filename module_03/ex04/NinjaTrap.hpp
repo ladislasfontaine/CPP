@@ -6,7 +6,7 @@
 /*   By: lafontai <lafontai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/30 16:44:18 by lafontai          #+#    #+#             */
-/*   Updated: 2020/07/02 07:16:30 by lafontai         ###   ########.fr       */
+/*   Updated: 2020/07/02 08:12:40 by lafontai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@
 #define PINK "\033[95m"
 #define RESET "\033[0m"
 
-class NinjaTrap : public ClapTrap
+class NinjaTrap : virtual public ClapTrap
 {
 	public:
 	NinjaTrap();

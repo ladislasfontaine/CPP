@@ -1,41 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   NinjaTrap.hpp                                      :+:      :+:    :+:   */
+/*   FragTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lafontai <lafontai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/06/30 16:44:18 by lafontai          #+#    #+#             */
-/*   Updated: 2020/07/02 07:16:30 by lafontai         ###   ########.fr       */
+/*   Created: 2020/06/30 08:05:48 by lafontai          #+#    #+#             */
+/*   Updated: 2020/07/02 08:12:53 by lafontai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef NINJATRAP_HPP
-# define NINJATRAP_HPP
+#ifndef FRAGTRAP_HPP
+# define FRAGTRAP_HPP
 
 #include <string>
 #include "ClapTrap.hpp"
-#include "FragTrap.hpp"
-#include "ScavTrap.hpp"
 
 #define RED "\033[91m"
 #define GREEN "\033[92m"
 #define YELLOW "\033[93m"
-#define PURPLE "\033[94m"
+#define BLUE "\033[94m"
 #define PINK "\033[95m"
 #define RESET "\033[0m"
 
-class NinjaTrap : public ClapTrap
+class FragTrap : virtual public ClapTrap
 {
 	public:
-	NinjaTrap();
-	NinjaTrap(std::string name);
-	~NinjaTrap();
-	NinjaTrap	&operator=(const NinjaTrap&);
-	void		ninjaShoebox(ClapTrap& target);
-	void		ninjaShoebox(FragTrap& target);
-	void		ninjaShoebox(ScavTrap& target);
-	void		ninjaShoebox(NinjaTrap& target);
+	FragTrap();
+	FragTrap(std::string name);
+	FragTrap(const FragTrap&);
+	~FragTrap();
+	FragTrap	&operator=(const FragTrap&);
+	void		vaulthunter_dot_exe(std::string const &target);
 };
 
 #endif

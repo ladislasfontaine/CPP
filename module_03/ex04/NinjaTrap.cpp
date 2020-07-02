@@ -50,21 +50,21 @@ NinjaTrap	&NinjaTrap::operator=(const NinjaTrap& ninja)
 }
 void		NinjaTrap::ninjaShoebox(ClapTrap& target)
 {
-	std::cout << PURPLE << "[ATTACK] Ninja Shoebox attack on CL4P-TP <" << target._name << ">" << std::endl;
+	std::cout << PURPLE << "[ATTACK] <" << _name << "> Ninja Shoebox attack on CL4P-TP <" << target._name << ">" << std::endl;
 	std::cout << "Let me teach you the ways of magic!" << RESET << std::endl;
 }
 void		NinjaTrap::ninjaShoebox(FragTrap& target)
 {
-	std::cout << PURPLE << "[ATTACK] Ninja Shoebox attack on FR4G-TP <" << target._name << ">" << std::endl;
+	std::cout << PURPLE << "[ATTACK] <" << _name << "> Ninja Shoebox attack on FR4G-TP <" << target._name << ">" << std::endl;
 	std::cout << "Don't tell me that wasn't awesome!" << RESET << std::endl;
 }
 void		NinjaTrap::ninjaShoebox(ScavTrap& target)
 {
-	std::cout << PURPLE << "[ATTACK] Ninja Shoebox attack on SC4V-TP <" << target._name << ">" << std::endl;
+	std::cout << PURPLE << "[ATTACK] <" << _name << "> Ninja Shoebox attack on SC4V-TP <" << target._name << ">" << std::endl;
 	std::cout << "Bad guy go boom!" << RESET << std::endl;
 }
 void		NinjaTrap::ninjaShoebox(NinjaTrap& target)
 {
-	std::cout << PURPLE << "[ATTACK] Ninja Shoebox attack on NINJ4-TP <" << target._name << ">" << std::endl;
+	std::cout << PURPLE << "[ATTACK] <" << _name << "> Ninja Shoebox attack on NINJ4-TP <" << target._name << ">" << std::endl;
 	std::cout << "Freeze! I don't know why I said that." << RESET << std::endl;
 }
