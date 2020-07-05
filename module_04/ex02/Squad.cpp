@@ -6,7 +6,7 @@
 /*   By: lafontai <lafontai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/03 10:35:39 by lafontai          #+#    #+#             */
-/*   Updated: 2020/07/04 07:48:04 by lafontai         ###   ########.fr       */
+/*   Updated: 2020/07/05 10:09:29 by lafontai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,12 @@ Squad	&Squad::operator=(const Squad &copy) {
 		delete element->marine;
 		delete element;
 	}
+	ISpaceMarine*	tmp;
+	_marines = 0;
 	for (int i(0); i < copy.getCount(); i++) {
-		this->push(copy.getUnit(i));
+		tmp = 0;
+		tmp = copy.getUnit(i)->clone();
+		this->push(tmp);
 	}
 	_count = copy.getCount();
 	return (*this);
