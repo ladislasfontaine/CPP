@@ -6,7 +6,7 @@
 /*   By: lafontai <lafontai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/10 15:13:13 by lafontai          #+#    #+#             */
-/*   Updated: 2020/07/17 08:38:36 by lafontai         ###   ########.fr       */
+/*   Updated: 2020/07/17 16:02:52 by lafontai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,49 +15,80 @@
 #include <exception>
 #include "Bureaucrat.hpp"
 #include "Form.hpp"
+#include "ShrubberyCreationForm.hpp"
+#include "RobotomyRequestForm.hpp"
+#include "PresidentialPardonForm.hpp"
 
 int		main() {
-	std::cout << ">>> TEST 1 <<<" << std::endl;
+	std::cout << ">>> TEST 1 - ok <<<" << std::endl;
 	try
 	{
-		Form		f1("Paperwork", 40, 30);
+		ShrubberyCreationForm	tree("home");
 		Bureaucrat	john("John", 12);
-		std::cout << f1;
+		std::cout << tree;
 		std::cout << john;
-		f1.beSigned(john);
-		std::cout << f1;
+		tree.beSigned(john);
+		tree.execute(john);
+		std::cout << tree;
 	}
 	catch (std::exception & e)
 	{
 		std::cerr << "Error: " << e.what() << std::endl;
 	}
-	std::cout << ">>> TEST 2 <<<" << std::endl;
+	std::cout << ">>> TEST 2 - grade too low <<<" << std::endl;
 	try
 	{
-		Form		f2("Questionnaire 12088", 40, 30);
-		Bureaucrat	max("Max", 42);
-		std::cout << f2;
+		RobotomyRequestForm	robot("Ivan");
+		Bureaucrat	max("Maxime", 50);
+		std::cout << robot;
 		std::cout << max;
-		f2.beSigned(max);
-		std::cout << f2;
+		robot.beSigned(max);
+		robot.execute(max);
+		std::cout << robot;
 	}
 	catch (std::exception & e)
 	{
 		std::cerr << "Error: " << e.what() << std::endl;
 	}
-	std::cout << ">>> TEST 3 <<<" << std::endl;
+	std::cout << ">>> TEST 3 - ok <<<" << std::endl;
 	try
 	{
-		Form	f3("Questionnaire 97744", 0, 30);
+		RobotomyRequestForm	robot2("Ivan");
+		Bureaucrat	marc("Marco", 45);
+		std::cout << robot2;
+		std::cout << marc;
+		robot2.beSigned(marc);
+		robot2.execute(marc);
+		std::cout << robot2;
 	}
 	catch (std::exception & e)
 	{
 		std::cerr << "Error: " << e.what() << std::endl;
 	}
-	std::cout << ">>> TEST 4 <<<" << std::endl;
+	std::cout << ">>> TEST 4 - not signed <<<" << std::endl;
 	try
 	{
-		Form	f4("Questionnaire 97744", 12, 1130);
+		RobotomyRequestForm	robot3("Ivan");
+		Bureaucrat	jo("Johny", 45);
+		std::cout << robot3;
+		std::cout << jo;
+		robot3.execute(jo);
+		std::cout << robot3;
+	}
+	catch (std::exception & e)
+	{
+		std::cerr << "Error: " << e.what() << std::endl;
+	}
+	std::cout << ">>> TEST 5 - presidential pardon <<<" << std::endl;
+	try
+	{
+		PresidentialPardonForm	sorry("David");
+		Bureaucrat	alb("Alberto", 2);
+		std::cout << sorry;
+		std::cout << alb;
+		sorry.beSigned(alb);
+		sorry.execute(alb);
+		std::cout << sorry;
 	}
 	catch (std::exception & e)
 	{
