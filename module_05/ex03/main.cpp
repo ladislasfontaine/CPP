@@ -6,7 +6,7 @@
 /*   By: lafontai <lafontai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/10 15:13:13 by lafontai          #+#    #+#             */
-/*   Updated: 2020/07/17 16:02:52 by lafontai         ###   ########.fr       */
+/*   Updated: 2020/07/30 16:54:52 by lafontai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,28 @@
 #include "ShrubberyCreationForm.hpp"
 #include "RobotomyRequestForm.hpp"
 #include "PresidentialPardonForm.hpp"
+#include "Intern.hpp"
 
 int		main() {
+	Intern someRandomIntern;
+	Form* rrf;
+	Form* scf;
+	Form* ppf;
+	Form* wf;
+	rrf = someRandomIntern.makeForm("robotomy request", "Bender");
+	scf = someRandomIntern.makeForm("shrubbery creation", "Maxou");
+	ppf = someRandomIntern.makeForm("presidential pardon", "Johno");
+	wf = someRandomIntern.makeForm("false argument", "Robert");
+
+	Bureaucrat	ceo("Jeff", 1);
+	std::cout << *ppf;
+
+	// ATTENTION fonction signForm qui ne semble pas réellement signer la Form
+	ceo.signForm(*ppf);
+	ppf->beSigned(ceo);
+	ceo.executeForm(*ppf);
+
+/*
 	std::cout << ">>> TEST 1 - ok <<<" << std::endl;
 	try
 	{
@@ -94,5 +114,6 @@ int		main() {
 	{
 		std::cerr << "Error: " << e.what() << std::endl;
 	}
+*/
 	return (0);
 }
